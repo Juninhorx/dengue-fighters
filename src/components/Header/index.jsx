@@ -11,8 +11,6 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../Logo'
 import { Link, useNavigate} from 'react-router-dom';
-import isAuthenticated from '../../auth';
-import { postEvent } from '../../services/createEvent';
 
 const pages = ['Home', 'Pricing', 'Add', 'Sair'];
 
@@ -21,7 +19,6 @@ function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
-    console.log(event.currentTarget)
     setAnchorElNav(event.currentTarget);
   };
 
@@ -51,10 +48,8 @@ function Header() {
   }
   
   function handleSairClick() {
-    console.log("Sair button clicked");
     // Adicione aqui o código que você deseja executar
     localStorage.setItem('user', null)
-    console.log(isAuthenticated())
     navigate(0)
   }
 

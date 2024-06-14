@@ -19,15 +19,21 @@ const ButtonInscrevaSe = styled.button`
   border-radius: 10px;
   color: white;
 `
+const Subtitulo = styled.h4`
+  color: #1976d2;
+`
 
 export default function Card(props) {
   return (
     <CardContainer>
       <h2>{props.titulo}</h2>
-      <h4>ORGANIZADOR: <p>{props.organizador}</p> </h4>
+      <Subtitulo>DATA E HORA:</Subtitulo>
+      <p>{props.dataEHora}</p>
+      <Subtitulo>ORGANIZADOR:</Subtitulo>
+      <p>{props.organizador}</p> 
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZqJdltHhM09jw08a2HcmQmeNA2etjsaprng&s" alt="aaa" />
-      <h3>Descrição:</h3>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint rem repudiandae reprehenderit incidunt voluptate facilis dolores aspernatur iusto aperiam obcaecati iure inventore voluptates maxime quasi enim, illo eum eaque nam!</p>
+      <Subtitulo>DESCRIÇÃO:</Subtitulo>
+      <p>{props.description ||  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint rem repudiandae reprehenderit incidunt voluptate facilis dolores aspernatur iusto aperiam obcaecati iure inventore voluptates maxime quasi enim, illo eum eaque nam!'}</p>
       <ButtonInscrevaSe>Se Inscreva</ButtonInscrevaSe>
     </CardContainer>
   );

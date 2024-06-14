@@ -12,19 +12,7 @@ import Logo from '../../components/Logo';
 import Header from '../../components/Header';
 import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../../services/postLogin';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://github.com/juninhorx">
-        Ricardo Xavier
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { Copyright } from '../Home';
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();

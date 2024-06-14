@@ -13,19 +13,7 @@ import { FormControl, FormControlLabel, Radio, RadioGroup, FormLabel } from '@mu
 import { postUser } from '../../services/createUser';
 import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://github.com/juninhorx">
-        Ricardo Xavier
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { Copyright } from '../Home';
 
 const defaultTheme = createTheme();
 
