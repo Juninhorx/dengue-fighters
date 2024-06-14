@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import authOwner from "../../authOwner.js"
 import { deleteEvent } from '../../services/deleteEvent.js';
 import { postSubscribe } from '../../services/postSubscribe';
-
+import { getSubscribe} from '../../services/getSubscribe.js';
 
 const CardContainer = styled.div`
   max-width: 500px;
@@ -56,6 +56,12 @@ export default function Card(props) {
     })
     console.log(response)
   };
+
+  const buscaInscritos = async ()=> {
+    const inscritos = await getSubscribe(props.eventId)
+    console.log(inscritos)
+  }
+
   return (
     <CardContainer>
       <h2>{props.titulo}</h2>
@@ -69,6 +75,7 @@ export default function Card(props) {
       <div>
         <ButtonInscrevaSe onClick={handleSubmit}>Se Inscreva</ButtonInscrevaSe>
         {authOwner(props.ownerId) ? <DeletEventBtn onClick={handleClickDelete}>DELETAR EVENTO</DeletEventBtn> : null}
+        <ButtonInscrevaSe onClick={buscaInscritos}>inscritos</ButtonInscrevaSe>
       </div>
 
     </CardContainer>
