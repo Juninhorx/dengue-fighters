@@ -40,7 +40,7 @@ const DeletEventBtn = styled.button`
 `
 
 export default function Card(props) {
-
+  const [subscribers, setSubscribers] = React.useState([]);
   const handleClickDelete = async () => {
     const responseDelete = await deleteEvent(props.eventId)
     console.log(props.eventId)
@@ -58,8 +58,8 @@ export default function Card(props) {
   };
 
   const buscaInscritos = async ()=> {
-    const inscritos = await getSubscribe(props.eventId)
-    console.log(inscritos)
+    const response = await getSubscribe(props.eventId)
+    setSubscribers(response);
   }
 
   return (
@@ -76,6 +76,11 @@ export default function Card(props) {
         <ButtonInscrevaSe onClick={handleSubmit}>Se Inscreva</ButtonInscrevaSe>
         {authOwner(props.ownerId) ? <DeletEventBtn onClick={handleClickDelete}>DELETAR EVENTO</DeletEventBtn> : null}
         <ButtonInscrevaSe onClick={buscaInscritos}>inscritos</ButtonInscrevaSe>
+        <ul>
+          {subscribers.map((subscriber) => (
+            <li key={subscriber}>{subscriber}</li>
+          ))}
+        </ul>
       </div>
 
     </CardContainer>
