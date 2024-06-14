@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import authOwner from "../../authOwner.js"
+import { deleteEvent } from '../../services/deleteEvent.js';
+import { postSubscribe } from '../../services/postSubscribe';
 
 
 const CardContainer = styled.div`
@@ -38,6 +40,22 @@ const DeletEventBtn = styled.button`
 `
 
 export default function Card(props) {
+
+  const handleClickDelete = async () => {
+    const responseDelete = await deleteEvent(props.eventId)
+    console.log(props.eventId)
+    console.log(responseDelete)
+  }
+
+  const handleSubmit = async (event) => {
+    const idUser = await JSON.parse(localStorage.getItem('user')).id
+    event.preventDefault();
+    const response = await postSubscribe({
+      userId: idUser,
+      eventId: props.evento.id,
+    })
+    console.log(response)
+  };
   return (
     <CardContainer>
       <h2>{props.titulo}</h2>
@@ -49,9 +67,10 @@ export default function Card(props) {
       <Subtitulo>DESCRIÇÃO:</Subtitulo>
       <p>{props.description ||  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint rem repudiandae reprehenderit incidunt voluptate facilis dolores aspernatur iusto aperiam obcaecati iure inventore voluptates maxime quasi enim, illo eum eaque nam!'}</p>
       <div>
-        <ButtonInscrevaSe>SE INSCREVA</ButtonInscrevaSe>
-        {authOwner(props.ownerId) ? <DeletEventBtn>DELETAR EVENTO</DeletEventBtn> : null}
+        <ButtonInscrevaSe onClick={handleSubmit}>Se Inscreva</ButtonInscrevaSe>
+        {authOwner(props.ownerId) ? <DeletEventBtn onClick={handleClickDelete}>DELETAR EVENTO</DeletEventBtn> : null}
       </div>
+
     </CardContainer>
   );
 }

@@ -21,7 +21,7 @@ export default function CreateEventPage() {
     const idUser = await JSON.parse(localStorage.getItem('user')).id
 
     const date = new Date(`${data.get('eventDate')}T${data.get('eventTime')}:00`)
-
+    console.log(date);
     const response = await postEvent({
       creatorUser: idUser,
       eventName: data.get('eventName'),

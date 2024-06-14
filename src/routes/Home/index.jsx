@@ -69,7 +69,7 @@ export default function Home() {
       <Header/>
       <h1 style={{margin: '30px 0'}}>Eventos</h1>
       {events.map((event, index) => (
-        <Card key={index} titulo={event.eventName} ownerId={event.creatorUser} dataEHora={formatDate(event.eventDate)}  organizador={event.creator.completeName} description={event.eventDescription} />
+        <Card key={index} evento={event} titulo={event.eventName} eventId={event.id} ownerId={event.creatorUser} dataEHora={formatDate(event.eventDate)}  organizador={event.creator.completeName} description={event.eventDescription} />
       ))}
       <Copyright/>
     </Container>
