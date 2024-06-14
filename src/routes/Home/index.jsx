@@ -35,7 +35,6 @@ export default function Home() {
       try {
         const data = await getEvent();
         setEvents(data);
-        console.log(data)
       } catch (error) {
         console.error("Erro ao buscar eventos:", error);
       }
@@ -70,7 +69,7 @@ export default function Home() {
       <Header/>
       <h1 style={{margin: '30px 0'}}>Eventos</h1>
       {events.map((event, index) => (
-        <Card key={index} titulo={event.eventName} dataEHora={formatDate(event.eventDate)}  organizador={event.creator.completeName} description={event.eventDescription} />
+        <Card key={index} titulo={event.eventName} ownerId={event.creatorUser} dataEHora={formatDate(event.eventDate)}  organizador={event.creator.completeName} description={event.eventDescription} />
       ))}
       <Copyright/>
     </Container>

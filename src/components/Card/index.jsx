@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import authOwner from "../../authOwner.js"
 
 
 const CardContainer = styled.div`
@@ -18,9 +19,22 @@ const ButtonInscrevaSe = styled.button`
   background: #1976d2;
   border-radius: 10px;
   color: white;
-`
-const Subtitulo = styled.h4`
+  font-weight: 600;
+  cursor: pointer;
+  `
+  const Subtitulo = styled.h4`
   color: #1976d2;
+`
+
+const DeletEventBtn = styled.button`
+  padding: 10px;
+  background: #D21919;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  margin-left: 20px;
+  font-weight: 600;
+  cursor: pointer;
 `
 
 export default function Card(props) {
@@ -34,7 +48,10 @@ export default function Card(props) {
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZqJdltHhM09jw08a2HcmQmeNA2etjsaprng&s" alt="aaa" />
       <Subtitulo>DESCRIÇÃO:</Subtitulo>
       <p>{props.description ||  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint rem repudiandae reprehenderit incidunt voluptate facilis dolores aspernatur iusto aperiam obcaecati iure inventore voluptates maxime quasi enim, illo eum eaque nam!'}</p>
-      <ButtonInscrevaSe>Se Inscreva</ButtonInscrevaSe>
+      <div>
+        <ButtonInscrevaSe>SE INSCREVA</ButtonInscrevaSe>
+        {authOwner(props.ownerId) ? <DeletEventBtn>DELETAR EVENTO</DeletEventBtn> : null}
+      </div>
     </CardContainer>
   );
 }
