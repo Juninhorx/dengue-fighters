@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from '../Logo'
 import { Link, useNavigate} from 'react-router-dom';
 
-const pages = ['Home', 'Pricing', 'Add', 'Sair'];
+const pages = ['Home', 'Add', 'Sair'];
 
 function Header() {
   const navigate = useNavigate()
@@ -40,11 +40,6 @@ function Header() {
     //   localEvento: 'casarao',
     //   descricaoEvento: 'a noite pega fogo'
     // })
-  }
-  
-  function handlePricingClick() {
-    console.log("Pricing button clicked");
-    // Adicione aqui o código que você deseja executar
   }
   
   function handleSairClick() {
@@ -96,9 +91,6 @@ function Header() {
                   case 'Home':
                     handleClick = handleHomeClick;
                     break;
-                  case 'Pricing':
-                    handleClick = handlePricingClick;
-                    break;
                   case 'Add':
                     handleClick = handleAddClick;
                     break
@@ -140,9 +132,6 @@ function Header() {
               switch(page) {
                 case 'Home':
                   handleClick = handleHomeClick;
-                  break;
-                case 'Pricing':
-                  handleClick = handlePricingClick;
                   break;
                 case 'Add':
                   handleClick = handleAddClick;
