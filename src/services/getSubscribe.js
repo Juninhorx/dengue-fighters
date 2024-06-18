@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://localhost:3333" });
+const api = axios.create({ baseURL: "https://dengue-fighters-server-production.up.railway.app" });
 
 const getSubscribe = async (eventId) => {
   const response = await api.get(`/subscribers/${eventId}`);
