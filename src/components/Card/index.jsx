@@ -4,6 +4,7 @@ import authOwner from "../../authOwner.js"
 import { deleteEvent } from '../../services/deleteEvent.js';
 import { postSubscribe } from '../../services/postSubscribe';
 import { getSubscribe} from '../../services/getSubscribe.js';
+import { useNavigate } from 'react-router-dom';
 
 const CardContainer = styled.div`
   max-width: 500px;
@@ -73,9 +74,12 @@ const Inscrito = styled.li`
 `
 
 export default function Card(props) {
+  const navigate = useNavigate()
   const [subscribers, setSubscribers] = React.useState([]);
   const handleClickDelete = async () => {
     const responseDelete = await deleteEvent(props.eventId)
+    alert('Evento deletado com sucesso!')
+    navigate(0)
     console.log(props.eventId)
     console.log(responseDelete)
   }

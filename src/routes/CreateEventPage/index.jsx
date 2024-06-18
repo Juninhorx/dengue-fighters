@@ -11,10 +11,12 @@ import { Copyright } from '../Home';
 import Header from '../../components/Header';
 import Logo from '../../components/Logo';
 import { postEvent } from '../../services/createEvent';
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function CreateEventPage() {
+  const navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -29,15 +31,9 @@ export default function CreateEventPage() {
       eventLocation: data.get('eventLocation'),
       eventDescription: data.get('eventDescription'),
     })
+    alert('Evento criado com sucesso!')
+    navigate('/home')
     console.log(response)
-    
-    // console.log({
-    //   eventName: data.get('eventName'),
-    //   eventDate: data.get('eventDate'),
-    //   eventTime: data.get('eventTime'),
-    //   eventLocation: data.get('eventLocation'),
-    //   eventDescription: data.get('eventDescription'),
-    // });
   };
 
   return (

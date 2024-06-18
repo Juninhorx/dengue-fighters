@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from '../Logo'
 import { Link, useNavigate} from 'react-router-dom';
 
-const pages = ['Home', 'Add', 'Sair'];
+const pages = ['Home', 'Adicionar Evento', 'Sair'];
 
 function Header() {
   const navigate = useNavigate()
@@ -91,7 +91,7 @@ function Header() {
                   case 'Home':
                     handleClick = handleHomeClick;
                     break;
-                  case 'Add':
+                  case 'Adicionar Evento':
                     handleClick = handleAddClick;
                     break
                   case 'Sair':
@@ -133,7 +133,7 @@ function Header() {
                 case 'Home':
                   handleClick = handleHomeClick;
                   break;
-                case 'Add':
+                case 'Adicionar Evento':
                   handleClick = handleAddClick;
                   break;
                 case 'Sair':
