@@ -37,7 +37,7 @@ export default function SignIn() {
     });
 
     if (response.data === "") {
-      localStorage.setItem('user', null)
+      localStorage.setItem('user', "falso")
       console.log(response.data)
       return
     }

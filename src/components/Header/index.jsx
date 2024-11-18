@@ -44,7 +44,7 @@ function Header() {
   
   function handleSairClick() {
     // Adicione aqui o código que você deseja executar
-    localStorage.setItem('user', null)
+    localStorage.setItem('user', 'falso')
     navigate(0)
   }
 
